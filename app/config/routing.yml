@@ -1,3 +1,7 @@
+pa_wiki:
+    resource: "@PAWikiBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pa_core:
     resource: "@PACoreBundle/Resources/config/routing.yml"
     prefix:   /

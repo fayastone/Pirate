@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new PA\CoreBundle\PACoreBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new PA\UserBundle\PAUserBundle(),
+            new PA\WikiBundle\PAWikiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
