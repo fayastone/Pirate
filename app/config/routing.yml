@@ -1,0 +1,14 @@
+pa_game:
+    resource: "@PAGameBundle/Resources/config/routing.yml"
+    prefix:   /Game
+
+pa_wiki:
+    resource: "@PAWikiBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pa_core:
+    resource: "@PACoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

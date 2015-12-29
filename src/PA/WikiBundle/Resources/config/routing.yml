@@ -1,0 +1,11 @@
+pa_wiki_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PAWikiBundle:Default:index }
+
+pa_wiki_explorer:
+    path:     /Explorer/
+    defaults: { _controller: PAWikiBundle:Explorer:explore }
+
+pa_wiki_ship:
+    path:     /hello/{name}
+    defaults: { _controller: PAWikiBundle:Default:index }
