@@ -3,6 +3,24 @@
 {% block title %}PACoreBundle:Home:home{% endblock %}
 
 {% block central_content %}
-Hello Game !
+ <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#taverne" aria-controls="taverne" role="tab" data-toggle="tab">Taverne</a></li>
+    <li role="presentation"><a href="#flotte" aria-controls="flotte" role="tab" data-toggle="tab">Flotte</a></li>
+    <li role="presentation"><a href="#autres" aria-controls="autres" role="tab" data-toggle="tab">Autres</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+    </div>
+    <div role="tabpanel" class="tab-pane" id="taverne">
+    	{{ include('PAGameBundle:Game:taverne.html.twig') }}
+    </div>
+    <div role="tabpanel" class="tab-pane" id="flotte"></div>
+    <div role="tabpanel" class="tab-pane" id="autres"></div>
+  </div>
+
 
 {% endblock %}
