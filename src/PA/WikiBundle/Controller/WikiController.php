@@ -6,8 +6,4 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class WikiController extends Controller
 {
-<<<<<<< HEAD
-	
-=======
->>>>>>> origin/master
 }
