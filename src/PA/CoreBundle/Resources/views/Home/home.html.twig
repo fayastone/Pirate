@@ -2,8 +2,8 @@
 
 {% block title %}PACoreBundle:Home:home{% endblock %}
 
-{% block body %}
-
+{% block content %}
+{% block header %}
  <div class="row">
  <div class = "col-md-3">
  	<img  src="{{asset('pictures/logo.png')}}" alt="..." class="img-responsive" width="60" height="60">
@@ -20,8 +20,12 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li><a href="#">Link</a></li>
 	        <li><a href="{{ path("pa_wiki_explorer") }}">Encyclopédie</a></li>
+	        
+	        {% if (is_granted("IS_AUTHENTICATED_FULLY")) %}
+	       		 <li><a href="{{ path("pa_game_home") }}">Jeu</a></li>
+	        {% endif %}
+	        
 	        <li><a href="#">Forum</a></li>
 	        <li><a href="#">Contact</a></li>
 	        <li class="dropdown">
@@ -40,16 +44,41 @@
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
+	
+	    {% if app.request.hasPreviousSession %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+{%  endblock %}
+{% block body %}
 
  <div class="container row">
- 	<div class="col-md-4">
- 		{{ render(controller("FOSUserBundle:Registration:register")) }}
+	 <div class="col-md-2">
+ 	{% if (not is_granted("IS_AUTHENTICATED_FULLY")) %}
+		{{ render(controller("FOSUserBundle:Registration:register")) }}
+		{{ render(controller("FOSUserBundle:Security:login")) }}
+	{% else %}
+         {{ app.user.username}} 
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'Deconnection'|trans({}, 'FOSUserBundle') }}
+                </a>
+	{%endif%}
  	</div>
  	
- 	<div class = "col-md-8">
- 	{% block article %}
+ 	<div class="col-md-8">
+ 	{% block central_content %}
+ 	{% endblock %}
+ 	 </div>
  	
- 	{%  endblock %}
+ 	<div class = "col-md-2">
+ {% endblock %}
+ 	
+ 	
  	</div>
 </div>
 {% endblock %}

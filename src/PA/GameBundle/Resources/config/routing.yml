@@ -1,0 +1,3 @@
+pa_game_home:
+    path:     /home
+    defaults: { _controller: PAGameBundle:Game:home }
